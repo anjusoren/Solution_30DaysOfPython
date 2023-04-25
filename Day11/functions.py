@@ -177,7 +177,7 @@ def evens_and_odds(num):
             sum_of_o = sum_of_o + i
     print(f'sum of all evens : {sum_of_e} and sum of all odds : {sum_of_o}')
     
-evens_and_odds(9) 
+#evens_and_odds(9) 
 
 
 # 1. Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
@@ -189,7 +189,7 @@ def factorial(num):
     else :
         return num * factorial(num - 1)
 
-print(factorial(4))
+#print(factorial(4))
 
 # 2. Call your function is_empty, it takes a parameter and it checks if it is empty or not
 def function_is_empty(arg):
@@ -198,16 +198,55 @@ def function_is_empty(arg):
     else :
         return False
     
-print(function_is_empty(0))
+#print(function_is_empty(0))
 
 # 3. Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation).
+def calculate_mean(dataset):
+    return sum(dataset)/len(dataset)
+#print(calculate_mean([1,2,3,4,5]))
+
+def calculate_median(dataset):
+    n = len(dataset)
+    index = n // 2
+    if n %2 != 0:
+        return sorted(dataset)[index]
+    return sum(sorted(dataset)[index - 1 : index + 1]) / 2
+
+#print(calculate_median([3, 5, 1, 4, 2]))
+    
 
 
 # Exercises: Level 3
 
 # 1. Write a function called is_prime, which checks if a number is prime.
+def is_prime(num):
+    if num > 1:
+        for i in range(2, int(num/2)):
+            if (num % i) == 0:
+                print(num , " is not a prime number.")
+                break
+            else:
+                print(num , " is a prime number.")
+                break
+    else:
+        print(num , " is not a prime number.")
+        
+is_prime(11)
+
 # 2. Write a functions which checks if all items are unique in the list.
+def is_unique(r):
+    if len(r) > len(set(r)):
+        return False
+    return True
+
+#print(is_unique([1,2,4,6,8,2,1,4,10,12,14,12,16,17]))
+
 # 3. Write a function which checks if all the items of the list are of the same data type.
+def type_check(lr):
+    return all(type(element) == type(lr[0]) for element in lr)
+
+print(type_check([5, 6, 2, 5, 7, 9,]))
+
 # 4. Write a function which check if provided variable is a valid python variable
 # 5. Go to the data folder and access the countries-data.py file.
 # Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
